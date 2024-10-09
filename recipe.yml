@@ -1,0 +1,8 @@
+name: 'DDR Security Password Policy'
+type: 'Droptica’s Drupal Recipes'
+description: "Password Policy"
+
+install:
+  - password_policy_characters
+  - password_policy_length
+  - user

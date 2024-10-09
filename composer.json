@@ -1,0 +1,17 @@
+{
+  "name": "droptica/ddr_security_password_policy",
+  "type": "drupal-recipe",
+  "description": "Droptica’s Drupal Recipes: Password Policy",
+  "keywords": ["recipe", "Drupal recipes", "Drupal recipe"],
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "drupal/core": ">=10.3",
+    "drupal/password_policy": "^4.0"
+  },
+  "authors": [
+    {
+      "name": "Droptica",
+      "role": "Company"
+    }
+  ]
+}
