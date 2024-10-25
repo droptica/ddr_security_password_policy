@@ -3,6 +3,50 @@ type: 'Droptica’s Drupal Recipes'
 description: "Password Policy"
 
 install:
+  - password_policy
   - password_policy_characters
   - password_policy_length
   - user
+
+config:
+  actions:    
+    password_policy.settings:
+      simpleConfigUpdate:
+        cron_threshold: 250
+
+    password_policy.password_policy.default_password_policy:
+      createIfNotExists:
+        langcode: en
+        status: true
+        dependencies:
+          module:
+            - password_policy_characters
+            - password_policy_length
+        id: default_password_policy
+        label: 'Default Password Policy'
+        password_reset: 183
+        send_reset_email: true
+        send_pending_email:
+          - 7
+        policy_constraints:
+          -
+            id: password_length
+            character_length: 12
+            character_operation: minimum
+          -
+            id: password_policy_character_constraint
+            character_count: 1
+            character_type: uppercase
+          -
+            id: password_policy_character_constraint
+            character_count: 1
+            character_type: lowercase
+          -
+            id: password_policy_character_constraint
+            character_count: 1
+            character_type: special
+        show_policy_table: false
+        roles:
+          authenticated: authenticated
+          content_editor: '0'
+          administrator: '0'
